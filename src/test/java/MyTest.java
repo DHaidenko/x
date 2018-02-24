@@ -15,18 +15,16 @@ import static org.junit.matchers.JUnitMatchers.containsString;
  */
 @RunWith(Parameterized.class)
 public class MyTest {
-int a;
-    int b;
+    @Parameterized.Parameter(value = 0)
+    public int a;
+    @Parameterized.Parameter(value = 1)
+    public int b;
 
-    public MyTest(int a, int b) {
-        this.a = a;
-        this.b = b;
-    }
+
 
     @Parameterized.Parameters
     public static Collection<Object[]> data() {
         return Arrays.asList( new Object[][]{{2,4},{2,4},{3,6},{5,10}});
-
     }
 
     @BeforeClass
@@ -54,6 +52,7 @@ int a;
 
     @Test
     public void test3() {
+
         int i = a+a;
         Assert.assertEquals("as",b,i);
     }
